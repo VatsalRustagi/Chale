@@ -19,7 +19,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        Events.append(EventModel(eventName: "Boba Run", dateTime: "6 PM, Oct 21", location: "Cha for Tea"))
+        Events.append(EventModel(eventName: "Boba Run", dateTime: "Oct 21 @ 6 PM", location: "Cha for Tea", description: "Craving some Mango Green Milk Tea and some of that crispy chicken. Anyone who just wants to chill are welcome :)"))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +30,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // TableView Functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as? HomeCell {
-            var event = Events[indexPath.row]
+            let event = Events[indexPath.row]
             event.people = indexPath.row + 2
             cell.updateUI(homeCell: Events[indexPath.row])
             return cell
@@ -62,6 +62,11 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBAction func addEvent(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "makeEvent", sender: nil)
     }
+    
+    @IBAction func refreshEvents(_ sender: UIBarButtonItem) {
+        tableView.reloadData()
+    }
+    
     
 }
 
