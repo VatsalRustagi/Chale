@@ -14,6 +14,7 @@ class EventModel {
     private var _dateTime: String!
     private var _location: String!
     private var _people: Int!
+    private var _description: String!
     
     var eventName: String {
         if _eventName == nil {
@@ -47,10 +48,18 @@ class EventModel {
             _people = newValue
         }
     }
+    
+    var description: String {
+        if _description == nil {
+            _description = ""
+        }
+        return _description
+    }
 
-    init(eventName: String, dateTime: String, location: String) {
+    init(eventName: String, dateTime: String, location: String, description: String) {
         _eventName = eventName
         _dateTime = dateTime
         _location = location
+        _description = description
     }
 }

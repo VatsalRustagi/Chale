@@ -14,6 +14,7 @@ class MoreInfoVC: UIViewController {
     @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UITextView!
     
     let peopleList = ["Disha","Vishnu","Vatsal","James","Aaron","Hodor","Jay","Anshul"]
     
@@ -28,16 +29,26 @@ class MoreInfoVC: UIViewController {
         navigationItem.title = eventInfo.eventName
         dateLabel.text = eventInfo.dateTime
         placeLabel.text = eventInfo.location
+        descriptionLabel.text = eventInfo.description
         
         dateLabel.layer.borderColor = UIColor(red: 1.00, green: 0.25, blue: 0.40, alpha: 1.00).cgColor
         dateLabel.layer.borderWidth = 1
         
         placeLabel.layer.borderColor = UIColor(red: 1.00, green: 0.25, blue: 0.40, alpha: 1.00).cgColor
         placeLabel.layer.borderWidth = 1
+        
+        descriptionLabel.layer.borderColor = UIColor(red: 1.00, green: 0.25, blue: 0.40, alpha: 1.00).cgColor
+        descriptionLabel.layer.borderWidth = 1
     }
     
     @IBAction func chatPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToChat", sender: nil)
+        if sender.titleLabel?.text == "Join" {
+            sender.setTitle("Chat", for: .normal)
+            sender.backgroundColor = UIColor(red: 1.00, green: 0.25, blue: 0.40, alpha: 1.00)
+        }
+        else {
+            performSegue(withIdentifier: "goToChat", sender: nil)
+        }
     }
 }
 
@@ -49,7 +60,7 @@ extension MoreInfoVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if eventInfo.people < peopleList.count{
+        if eventInfo.people < peopleList.count {
             return eventInfo.people
         }
         return peopleList.count
