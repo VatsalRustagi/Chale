@@ -13,7 +13,7 @@ import TwilioChatClient
 class ChatViewController: UIViewController {
     
     //Important - update this URL
-    let tokenURL = "http://localhost:3000/"
+    let tokenURL = "https://chaleletsgo.herokuapp.com/"
     
     
     
@@ -86,7 +86,7 @@ class ChatViewController: UIViewController {
         // Fetch Access Token from the server and initialize Chat Client - this assumes you are running
         // the PHP starter app on your local machine, as instructed in the quick start guide
         let deviceId = UIDevice.current.identifierForVendor!.uuidString
-        let urlString = "http://localhost:3000/token/?id=\(userName)&device=\(deviceId)"
+        let urlString = "\(tokenURL)token/?id=\(userName)&device=\(deviceId)"
         
         TokenUtils.retrieveToken(url: urlString) { (token, identity, error) in
             if let token = token, let identity = identity {
