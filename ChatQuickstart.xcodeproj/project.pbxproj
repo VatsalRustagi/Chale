@@ -18,6 +18,7 @@
 		512D7B8D1F9C45E40040C6E5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512D7B8C1F9C45E30040C6E5 /* HomeVC.swift */; };
 		512D7B8F1F9C45ED0040C6E5 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512D7B8E1F9C45ED0040C6E5 /* EventModel.swift */; };
 		512D7B911F9C45F60040C6E5 /* MoreInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512D7B901F9C45F60040C6E5 /* MoreInfoVC.swift */; };
+		512D7B931F9C57820040C6E5 /* NewEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512D7B921F9C57820040C6E5 /* NewEventVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		512D7B8C1F9C45E30040C6E5 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		512D7B8E1F9C45ED0040C6E5 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		512D7B901F9C45F60040C6E5 /* MoreInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoVC.swift; sourceTree = "<group>"; };
+		512D7B921F9C57820040C6E5 /* NewEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventVC.swift; sourceTree = "<group>"; };
 		7E00D08304296D78174E9A25 /* libPods-ChatQuickstart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatQuickstart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		888A7D0B8492617CB04A2F4C /* Pods-ChatQuickstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatQuickstart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatQuickstart/Pods-ChatQuickstart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				512D7B8C1F9C45E30040C6E5 /* HomeVC.swift */,
 				512D7B8E1F9C45ED0040C6E5 /* EventModel.swift */,
 				512D7B901F9C45F60040C6E5 /* MoreInfoVC.swift */,
+				512D7B921F9C57820040C6E5 /* NewEventVC.swift */,
 				2861735A1DEDEF0C00247541 /* Main.storyboard */,
 				2861735D1DEDEF0C00247541 /* Assets.xcassets */,
 				2861735F1DEDEF0C00247541 /* LaunchScreen.storyboard */,
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512D7B931F9C57820040C6E5 /* NewEventVC.swift in Sources */,
 				286173591DEDEF0C00247541 /* ChatViewController.swift in Sources */,
 				512D7B8D1F9C45E40040C6E5 /* HomeVC.swift in Sources */,
 				512D7B911F9C45F60040C6E5 /* MoreInfoVC.swift in Sources */,

@@ -9,6 +9,7 @@
 import UIKit
 
 var userName = ""
+var Events: [EventModel] = []
 
 class MainVC: UIViewController {
 

@@ -12,6 +12,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
             <string>Avenir-Heavy</string>
             <string>Avenir-Medium</string>
         </array>
@@ -189,7 +190,7 @@
         <!--Events-->
         <scene sceneID="6F5-99-vAU">
             <objects>
-                <viewController id="RLu-pS-7Uv" customClass="HomeVC" customModule="Chale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RLu-pS-7Uv" customClass="HomeVC" customModule="ChatQuickstart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Grt-yq-nv4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,7 +199,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeCell" rowHeight="175" id="DZO-pN-kYf" customClass="HomeCell" customModule="Chale" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeCell" rowHeight="175" id="DZO-pN-kYf" customClass="HomeCell" customModule="ChatQuickstart" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZO-pN-kYf" id="uH8-3s-UE8">
@@ -308,15 +309,95 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ra-Mq-A4d"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Events" id="A2L-3m-RbK"/>
+                    <navigationItem key="navigationItem" title="Events" id="A2L-3m-RbK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ywc-pp-db7">
+                            <connections>
+                                <action selector="addEvent:" destination="RLu-pS-7Uv" id="YXr-Sq-ziw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="sCc-je-cEf" id="GCC-nh-sEB"/>
                         <segue destination="COu-9T-0Ga" kind="show" identifier="getInfo" id="aYi-5l-DPF"/>
+                        <segue destination="UZX-My-YPg" kind="show" identifier="makeEvent" id="i11-1D-5yn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="To6-PC-uPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-116" y="621"/>
+        </scene>
+        <!--Make Event-->
+        <scene sceneID="Gto-zd-BY6">
+            <objects>
+                <viewController id="UZX-My-YPg" customClass="NewEventVC" customModule="ChatQuickstart" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Px-EF-22M"/>
+                        <viewControllerLayoutGuide type="bottom" id="O7K-NH-mW1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yn5-31-iMG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YJm-mg-NKA">
+                                <rect key="frame" x="24" y="15" width="327" height="250"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's the event name?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-QF-4dS">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Qsw-Zj-VTd"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="0.25264757539999999" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is it?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8j-Kx-pA0">
+                                        <rect key="frame" x="0.0" y="50" width="327" height="35"/>
+                                        <color key="textColor" red="1" green="0.25264757539999999" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="v6n-4s-yl3">
+                                        <rect key="frame" x="0.0" y="100" width="327" height="150"/>
+                                        <color key="tintColor" red="1" green="0.25264757539999999" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="530339363.19661599">
+                                            <!--2017-10-22 04:29:23 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="S4o-ZG-lRc"/>
+                                    <constraint firstItem="a8j-Kx-pA0" firstAttribute="height" secondItem="ZXE-QF-4dS" secondAttribute="height" id="Vc2-NB-Gsn"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="YJm-mg-NKA" secondAttribute="trailing" constant="8" id="WeO-MO-rDg"/>
+                            <constraint firstItem="YJm-mg-NKA" firstAttribute="leading" secondItem="yn5-31-iMG" secondAttribute="leadingMargin" constant="8" id="cqm-WZ-0zk"/>
+                            <constraint firstItem="YJm-mg-NKA" firstAttribute="top" secondItem="3Px-EF-22M" secondAttribute="bottom" constant="15" id="gBL-4d-cOY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Make Event" id="sQn-nA-jkg">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="EHE-gq-H8m">
+                            <connections>
+                                <action selector="cancelBtn:" destination="UZX-My-YPg" id="KSG-of-J0r"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="0au-iA-BO9">
+                            <connections>
+                                <action selector="doneBtn:" destination="UZX-My-YPg" id="pYs-YD-5SN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePickerView" destination="v6n-4s-yl3" id="Nj5-R7-fr3"/>
+                        <outlet property="eventTitleTF" destination="ZXE-QF-4dS" id="QhL-4f-xNT"/>
+                        <outlet property="locationTF" destination="a8j-Kx-pA0" id="z2k-OR-JEp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B7H-BQ-d4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-116" y="1348.8755622188908"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PiT-Jl-2Ng">
@@ -345,7 +426,7 @@
         <!--More InfoVC-->
         <scene sceneID="V5W-Ut-FZA">
             <objects>
-                <viewController id="COu-9T-0Ga" customClass="MoreInfoVC" customModule="Chale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="COu-9T-0Ga" customClass="MoreInfoVC" customModule="ChatQuickstart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UxM-4t-XHG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
