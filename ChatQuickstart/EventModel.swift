@@ -13,34 +13,48 @@ class EventModel {
     private var _eventName: String!
     private var _dateTime: String!
     private var _location: String!
-    private var _people: Int!
+    private var _people: [String]!
     private var _description: String!
     
     var eventName: String {
-        if _eventName == nil {
-            _eventName = ""
+        get{
+            if _eventName == nil {
+                _eventName = ""
+            }
+            return _eventName
         }
-        return _eventName
+        set{
+            _eventName = newValue
+        }
     }
     
     var dateTime: String {
-        if _dateTime == nil {
-            _dateTime = ""
+        get{
+            if _dateTime == nil {
+                _dateTime = ""
+            }
+            return _dateTime
         }
-        return _dateTime
+        set{
+            _dateTime = newValue
+        }
     }
     
     var location: String {
-        if _location == nil {
-            _location = ""
+        get{
+            if _location == nil {
+                _location = ""
+            }
+            return _location}
+        set{
+            _location = newValue
         }
-        return _location
     }
     
-    var people: Int {
+    var people: [String] {
         get{
             if _people == nil {
-                _people = 0
+                _people = []
             }
             return _people
         }
@@ -51,7 +65,7 @@ class EventModel {
     
     var description: String {
         if _description == nil {
-            _description = ""
+            _description = "There was no description provided."
         }
         return _description
     }
@@ -61,5 +75,9 @@ class EventModel {
         _dateTime = dateTime
         _location = location
         _description = description
+    }
+    
+    init(){
+        
     }
 }

@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -560,10 +560,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ICd-6X-Xkt"/>
                     <connections>
+                        <outlet property="chatjoinBtn" destination="u2o-zU-jL9" id="01F-6U-3I5"/>
                         <outlet property="dateLabel" destination="Fve-V1-T8t" id="943-KU-IPr"/>
                         <outlet property="descriptionLabel" destination="Wbv-vM-eZ8" id="Pxs-XG-6kj"/>
                         <outlet property="navItem" destination="ICd-6X-Xkt" id="JPz-Ls-Qcf"/>
                         <outlet property="placeLabel" destination="OIC-KR-feO" id="0F2-zI-t1N"/>
+                        <outlet property="tableView" destination="eh7-xI-cie" id="DnG-4P-1d8"/>
                         <segue destination="O0g-Nw-Lhp" kind="show" identifier="goToChat" id="f9O-rl-Qra"/>
                     </connections>
                 </viewController>

@@ -9,19 +9,26 @@
 import UIKit
 
 var userName = ""
-var Events: [EventModel] = []
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, BackendDelegate {
 
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var userTextField: UITextField!
     
+    let backend = Backend()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        backend.delegate = self
+        
     }
     
     @IBAction func pressedEnter(_ sender: UIButton) {
         userName = userTextField.text!
+        backend.postJSONData(to: "add_user/", withParams: ["username": userName])
+    }
+    
+    func processData(JSON: Dictionary<String, Any>) {
         performSegue(withIdentifier: "goToHome", sender: nil)
     }
 

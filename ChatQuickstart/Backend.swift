@@ -15,11 +15,13 @@ protocol BackendDelegate {
 
 class Backend {
     
+    private let baseURL = "http://localhost:3000/"
+    
     var delegate: BackendDelegate? = nil
     
     func getJSONData(from url: String, withParams params: Dictionary<String, Any>) {
         
-        var dataURL = URLComponents(string: url)!
+        var dataURL = URLComponents(string: baseURL + url)!
         
         var items: [URLQueryItem] = []
         for (name,value) in params {
@@ -43,7 +45,7 @@ class Backend {
     
     func postJSONData(to url: String, withParams params: Dictionary<String, Any>) {
         
-        let dataURL = URLComponents(string: url)
+        let dataURL = URLComponents(string: baseURL + url)
         
         let headers: HTTPHeaders = ["Content-Type": "application/json; charset=utf-8"]
         

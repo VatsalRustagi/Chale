@@ -8,12 +8,14 @@
 
 import UIKit
 
-class NewEventVC: UIViewController, UITextViewDelegate {
+class NewEventVC: UIViewController, UITextViewDelegate, BackendDelegate {
 
     @IBOutlet weak var eventTitleTF: UITextField!
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var datePickerView: UIDatePicker!
     @IBOutlet weak var descriptionTV: UITextView!
+    
+    let backend = Backend()
     
     @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
@@ -24,7 +26,17 @@ class NewEventVC: UIViewController, UITextViewDelegate {
         dateFormatter.dateFormat = "MMM dd @ hh:mm a"
         
         let event = EventModel(eventName: eventTitleTF.text!, dateTime: dateFormatter.string(from: datePickerView.date), location: locationTF.text!, description: descriptionTV.text)
-        Events.append(event)
+        
+        let params : [String: Any] = [
+            "title" : event.eventName,
+            "location" : event.location,
+            "datetime" : event.dateTime,
+            "people" : [userName]
+        ]
+        backend.postJSONData(to: "add_event/", withParams: params)
+    }
+    
+    func processData(JSON: Dictionary<String, Any>) {
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -32,7 +44,7 @@ class NewEventVC: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         descriptionTV.delegate = self
-        
+        backend.delegate = self
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

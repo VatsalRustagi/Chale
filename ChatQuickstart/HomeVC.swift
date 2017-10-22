@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 
-class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, BackendDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    let backend = Backend()
+    
+    var Events: [EventModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,19 +22,51 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        Events.append(EventModel(eventName: "Boba Run", dateTime: "Oct 21 @ 6 PM", location: "Cha for Tea", description: "Craving some Mango Green Milk Tea and some of that crispy chicken. Anyone who just wants to chill are welcome :)"))
+        backend.delegate = self
+        backend.getJSONData(from: "events/", withParams: [:])
+        
+//        Events.append(EventModel(eventName: "Boba Run", dateTime: "Oct 21 @ 6 PM", location: "Cha for Tea", description: "Craving some Mango Green Milk Tea and some of that crispy chicken. Anyone who just wants to chill are welcome :)"))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        Events = []
+        backend.getJSONData(from: "events/", withParams: [:])
+    }
+    
+    func processData(JSON: Dictionary<String, Any>) {
+        if let result = JSON["result"] as? [Dictionary<String, Any>]{
+            for event in result{
+                let eventModal = EventModel()
+                if let location = event["location"] as? String{
+                    eventModal.location = location
+                }
+                if let datetime = event["datetime"] as? String{
+                    eventModal.dateTime = datetime
+                }
+                if let title = event["title"] as? String{
+                    eventModal.eventName = title
+                }
+                if let people = event["people"] as? [String]{
+                    eventModal.people = people
+                }
+                
+                Events.append(eventModal)
+            }
+        }
+        
+        tableView.alpha = 0.2
         tableView.reloadData()
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.tableView.alpha = 1.0
+        })
+        
     }
     
     // TableView Functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as? HomeCell {
-            let event = Events[indexPath.row]
-            event.people = indexPath.row + 2
             cell.updateUI(homeCell: Events[indexPath.row])
             return cell
         }
@@ -64,7 +99,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func refreshEvents(_ sender: UIBarButtonItem) {
-        tableView.reloadData()
+        Events = []
+        backend.getJSONData(from: "events/", withParams: [:])
     }
     
     
@@ -82,7 +118,7 @@ class HomeCell: UITableViewCell {
         planName.text = homeCell.eventName
         dateTime.text = homeCell.dateTime
         location.text = homeCell.location
-        numPeople.text = "\(homeCell.people) are down!"
+        numPeople.text = "\(homeCell.people.count) are down!"
     }
     
 }
