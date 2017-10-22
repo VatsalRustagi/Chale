@@ -167,7 +167,6 @@ extension ChatViewController: TwilioChatClientDelegate {
                     self.generalChannel = channel
                     channel.join(completion: { result in
                         print("Channel joined with result \(result)")
-                        
                     })
                 } else {
                     // Create the general channel (for public use) if it hasn't been created yet

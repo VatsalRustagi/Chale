@@ -30,6 +30,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // TableView Functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as? HomeCell {
+            var event = Events[indexPath.row]
+            event.people = indexPath.row + 2
             cell.updateUI(homeCell: Events[indexPath.row])
             return cell
         }
@@ -75,6 +77,7 @@ class HomeCell: UITableViewCell {
         planName.text = homeCell.eventName
         dateTime.text = homeCell.dateTime
         location.text = homeCell.location
+        numPeople.text = "\(homeCell.people) are down!"
     }
     
 }
