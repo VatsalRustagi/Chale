@@ -35,6 +35,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Back
     }
     
     func processData(JSON: Dictionary<String, Any>) {
+        Events = []
         if let result = JSON["result"] as? [Dictionary<String, Any>]{
             for event in result{
                 let eventModal = EventModel()
