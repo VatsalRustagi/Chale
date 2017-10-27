@@ -6,9 +6,21 @@
 
 ## Screenshots
 
-<p align="center">
-  <img src="Screenshots/pic1.png" width="400" height='auto' style="border:5px solid black">
-  <img src="Screenshots/pic2.png" width="400" height='auto' style="border:5px solid black">
-  <img src="Screenshots/pic3.png" width="400" height='auto' style="border:5px solid black">
-  <img src="Screenshots/pic4.png" width="400" height='auto' style="border:5px solid black">
-</p>
+<table style="width:100%">
+  <tr>
+    <td>
+      <img src="Screenshots/pic1.png">
+    </td>
+    <td>
+      <img src="Screenshots/pic2.png">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="Screenshots/pic3.png">
+    </td>
+    <td>
+      <img src="Screenshots/pic4.png">
+    </td>
+  </tr>
+ </table>
