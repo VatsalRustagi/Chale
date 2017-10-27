@@ -8,18 +8,18 @@
 
 <table style="width:100%">
   <tr>
-    <td>
+    <td width="50%">
       <img src="Screenshots/pic1.png">
     </td>
-    <td>
+    <td width="50%">
       <img src="Screenshots/pic2.png">
     </td>
   </tr>
   <tr>
-    <td>
+    <td width="50%">
       <img src="Screenshots/pic3.png">
     </td>
-    <td>
+    <td width="50%">
       <img src="Screenshots/pic4.png">
     </td>
   </tr>
