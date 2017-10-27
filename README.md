@@ -1,4 +1,4 @@
-# Chale? Let's go
+<p align="center">Chale? Let's go</p>
 
 ## This is a chat application developed using Twilio's programmable chat SDK. The application solves the issue of communication within a group while making an event plan and reduces many different channels of communication to one.
 
@@ -7,7 +7,8 @@
 ## Screenshots
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/26324291/31864055-30eb8412-b70c-11e7-98a6-744b45a14ca9.png" width="400" border="5">
-  <img src="https://user-images.githubusercontent.com/26324291/31864069-70e59b66-b70c-11e7-9fbf-65f73dd0a016.png" width="400" border="5">
-  <img src="https://user-images.githubusercontent.com/26324291/31864070-7103a4da-b70c-11e7-9708-61fcefc60a4f.png" width="400" border="5">
+  <img src="Screenshots/pic1.png" width="400" border="5">
+  <img src="Screenshots/pic2.png" width="400" border="5">
+  <img src="Screenshots/pic3.png" width="400" border="5">
+  <img src="Screenshots/pic4.png" width="400" border="5">
 </p>
